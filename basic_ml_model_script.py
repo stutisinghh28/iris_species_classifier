@@ -6,4 +6,8 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 #start by loading the data required
 iris = load_iris()
 X = pd.DataFrame(iris.data, columns=iris.feature_names)  # features 
-y = pd.Series(iris.target, name="species")                # labels 
+y = pd.Series(iris.target, name="species") # labels 
+#explore the data
+print("Shape of features:", X.shape())
+print("\nFirst 5 rows:\n", X.head())
+print("\nSpecies classes:", list(iris.target_names))  
