@@ -18,3 +18,14 @@ print(f"\nTrain size: {len(X_train)}, Test size: {len(X_test)}")
 #train a model(the real deal)
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
+#evaluate the trained model
+y_pred = model.predict(X_test)
+ 
+acc = accuracy_score(y_test, y_pred)
+print(f"\nAccuracy on test set: {acc:.2%}")
+ 
+print("\nClassification report:")
+print(classification_report(y_test, y_pred, target_names=iris.target_names))
+ 
+print("Confusion matrix (rows=actual, cols=predicted):")
+print(confusion_matrix(y_test, y_pred))
