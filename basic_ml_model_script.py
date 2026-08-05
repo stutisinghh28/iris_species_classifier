@@ -33,3 +33,22 @@ print(confusion_matrix(y_test, y_pred))
 #which features mattered the most???(infer)
 importances = pd.Series(model.feature_importances_, index=X.columns)
 print("\nFeature importances:\n", importances.sort_values(ascending=False))
+
+#new sample
+def predict_species(sepal_length, sepal_width, petal_length, petal_width):
+    sample = pd.DataFrame(
+        [[sepal_length, sepal_width, petal_length, petal_width]],
+        columns=iris.feature_names
+    )
+    pred_class = model.predict(sample)[0]
+    probs = model.predict_proba(sample)[0]  # confidence per class
+ 
+    species_name = iris.target_names[pred_class]
+    confidence = probs[pred_class]
+ 
+    print(f"\nInput: sepal={sepal_length}x{sepal_width}, petal={petal_length}x{petal_width}")
+    print(f"Predicted species: {species_name}  (confidence: {confidence:.1%})")
+    for name, p in zip(iris.target_names, probs):
+        print(f"   {name}: {p:.1%}")
+ 
+    return species_name
