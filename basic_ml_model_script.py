@@ -52,6 +52,14 @@ def predict_species(sepal_length, sepal_width, petal_length, petal_width):
 
     species_name = iris.target_names[pred_class]
     confidence = probs[pred_class]
+    
+    print(f"\nInput: sepal={sepal_length}x{sepal_width}, petal={petal_length}x{petal_width}")
+    print(f"Predicted species: {species_name}  (confidence: {confidence:.1%})")
+    for name, p in zip(iris.target_names, probs):
+        print(f"   {name}: {p:.1%}")
+
+    return species_name 
+
 
    
 
