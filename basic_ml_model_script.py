@@ -3,3 +3,7 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+#start by loading the data required
+iris = load_iris()
+X = pd.DataFrame(iris.data, columns=iris.feature_names)  # features 
+y = pd.Series(iris.target, name="species")                # labels 
