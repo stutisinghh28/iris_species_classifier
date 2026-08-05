@@ -29,3 +29,7 @@ print(classification_report(y_test, y_pred, target_names=iris.target_names))
  
 print("Confusion matrix (rows=actual, cols=predicted):")
 print(confusion_matrix(y_test, y_pred))
+
+#which features mattered the most???(infer)
+importances = pd.Series(model.feature_importances_, index=X.columns)
+print("\nFeature importances:\n", importances.sort_values(ascending=False))
