@@ -50,5 +50,8 @@ def predict_species(sepal_length, sepal_width, petal_length, petal_width):
     print(f"Predicted species: {species_name}  (confidence: {confidence:.1%})")
     for name, p in zip(iris.target_names, probs):
         print(f"   {name}: {p:.1%}")
- 
+    #new sample
+predict_species(5.1, 3.5, 1.4, 0.2)   # classic setosa-shaped
+predict_species(6.0, 2.7, 5.1, 1.6)   # more versicolor-shaped
+predict_species(6.9, 3.1, 5.4, 2.1)  
     return species_name
